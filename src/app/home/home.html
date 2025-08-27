@@ -1,0 +1,26 @@
+<div class="container py-4">
+  <h2 class="mb-4 text-center">Home Page</h2>
+  <form class="mb-3">
+    <div class="mb-3 d-flex justify-content-center">
+      <div >
+        <input
+          type="text"
+          class="form-control"
+          id="scanResult"
+          [value]="scannedText ?? ''"
+          
+        />
+      </div>
+    </div>
+    <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-2 mb-3">
+      <button class="btn btn-primary" type="button" (click)="onScan()">Scan</button>
+      <button class="btn btn-secondary" type="button" (click)="getAppInfo()">Get App Info</button>
+      <button class="btn btn-info" type="button" (click)="showPopup()">Trigger Flutter Popup</button>
+      <a class="btn btn-outline-primary" routerLink="/help">Help Page</a>
+    </div>
+  </form>
+  <div *ngIf="appInfo">
+    <h5>App Info:</h5>
+    <pre class="bg-light p-2 rounded">{{ appInfo | json }}</pre>
+  </div>
+</div>
